@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    @yield('custom-css')
+
 </head>
 
 
@@ -45,11 +48,17 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                        <a href="/" class="nav-link">
+                            <i class="nav-icon fas fa-clipboard"></i>
                             <p>
-                                Simple Link
-                                <span class="right badge badge-danger">New</span>
+                                Dashboard
+                            </p>
+                        </a>
+
+                        <a href="/measurements" class="nav-link">
+                            <i class="nav-icon fas fa-list"></i>
+                            <p>
+                                All Measurements
                             </p>
                         </a>
                     </li>
@@ -93,6 +102,8 @@
 <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
+
+@yield('custom-js')
 
 </body>
 </html>
