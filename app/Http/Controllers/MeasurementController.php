@@ -41,7 +41,7 @@ class MeasurementController extends Controller
 
         $this->dispatch(new StoreMeasurement($request));
 
-        return 'done';
+        return response()->json(['success' => 'success'], 200);
     }
 
 
