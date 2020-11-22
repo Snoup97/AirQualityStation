@@ -22,7 +22,6 @@ class FireController extends Controller
 
     public function alarm($name)
     {
-        dd($name);
-        return view('fire', compact($name));
+        return view('fire', compact('name'));
     }
 }
