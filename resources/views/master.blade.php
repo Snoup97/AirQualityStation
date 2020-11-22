@@ -104,6 +104,8 @@
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
 <script>
+    Pusher.logToConsole = true;
+    
     var pusher = new Pusher('50ecccaa9a538fcb58d4', {
         cluster: 'eu'
     });
