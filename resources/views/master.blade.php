@@ -112,7 +112,7 @@
 
     var channel = pusher.subscribe('fire');
     channel.bind('FireDetected', function(data) {
-        window.location.href = {{ url('/fire') }} + data['name'];
+        window.location.href = "http://207.154.246.6/fire/" + data['name'];
     });
 </script>
 
