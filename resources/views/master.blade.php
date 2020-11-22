@@ -98,6 +98,11 @@
     </footer>
 </div>
 
+<script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
 <script>
     var pusher = new Pusher('50ecccaa9a538fcb58d4', {
         cluster: 'eu'
@@ -108,11 +113,6 @@
         window.location.href = url('/fire/') + data['name'];
     });
 </script>
-
-<script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
-<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
 @yield('custom-js')
 
