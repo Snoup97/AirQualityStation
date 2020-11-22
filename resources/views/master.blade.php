@@ -105,14 +105,14 @@
 
 <script>
     Pusher.logToConsole = true;
-    
+
     var pusher = new Pusher('50ecccaa9a538fcb58d4', {
         cluster: 'eu'
     });
 
     var channel = pusher.subscribe('fire');
     channel.bind('FireDetected', function(data) {
-        window.location.href = url('/fire/') + data['name'];
+        window.location.href = {{ url('/fire') }} + data['name'];
     });
 </script>
 
