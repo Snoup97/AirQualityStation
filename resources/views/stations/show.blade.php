@@ -17,6 +17,8 @@
             var humidityCanvas = $('#humidityChart').get(0).getContext('2d')
             var pressureCanvas = $('#pressureChart').get(0).getContext('2d')
             var gasCanvas = $('#gasChart').get(0).getContext('2d')
+            var p25Canvas = $('#p25Chart').get(0).getContext('2d')
+            var p10Canvas = $('#p10Chart').get(0).getContext('2d')
 
             var temperatureData = {
                 labels: [@foreach($measurements as $measurement) '{{ $measurement->created_at }}', @endforeach],
@@ -86,6 +88,40 @@
                 ]
             }
 
+            var p25Data = {
+                labels: [@foreach($measurements as $measurement) '{{ $measurement->created_at }}', @endforeach],
+                datasets: [
+                    {
+                        label: 'P2.5',
+                        backgroundColor: 'rgba(188,141,60,0.9)',
+                        borderColor: 'rgba(188,141,60,0.8)',
+                        pointRadius: false,
+                        pointColor: '#3b8bba',
+                        pointStrokeColor: 'rgba(188,141,60,1)',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(188,141,60,1)',
+                        data: [@foreach($measurements as $measurement) {{ $measurement->p25 }}, @endforeach]
+                    }
+                ]
+            }
+
+            var p10Data = {
+                labels: [@foreach($measurements as $measurement) '{{ $measurement->created_at }}', @endforeach],
+                datasets: [
+                    {
+                        label: 'P10',
+                        backgroundColor: 'rgba(188,141,60,0.9)',
+                        borderColor: 'rgba(188,141,60,0.8)',
+                        pointRadius: false,
+                        pointColor: '#3b8bba',
+                        pointStrokeColor: 'rgba(188,141,60,1)',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(188,141,60,1)',
+                        data: [@foreach($measurements as $measurement) {{ $measurement->p10 }}, @endforeach]
+                    }
+                ]
+            }
+
             var areaChartOptions = {
                 maintainAspectRatio: false,
                 responsive: true,
@@ -125,6 +161,16 @@
             var gasChart = new Chart(gasCanvas, {
                 type: 'line',
                 data: gasData,
+                options: areaChartOptions
+            })
+            var p25Chart = new Chart(p25Canvas, {
+                type: 'line',
+                data: p25Data,
+                options: areaChartOptions
+            })
+            var p10Chart = new Chart(p10Canvas, {
+                type: 'line',
+                data: p10Data,
                 options: areaChartOptions
             })
         })
@@ -176,8 +222,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-
+            <div class="col-md-6">
                 <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Humidity</h3>
@@ -208,7 +255,6 @@
                 </div>
             </div>
 
-
             <div class="col-md-6">
                 <div class="card card-primary">
                     <div class="card-header">
@@ -238,8 +284,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-
+            <div class="col-md-6">
                 <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Gas</h3>
@@ -263,6 +310,69 @@
                                 </div>
                             </div>
                             <canvas id="gasChart"
+                                    style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 763px;"
+                                    width="763" height="250" class="chartjs-render-monitor"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">P2.5</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                    class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                    class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="p25Chart"
+                                    style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 763px;"
+                                    width="763" height="250" class="chartjs-render-monitor"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">P10</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                    class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                    class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="p10Chart"
                                     style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 763px;"
                                     width="763" height="250" class="chartjs-render-monitor"></canvas>
                         </div>

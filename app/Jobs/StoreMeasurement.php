@@ -28,6 +28,8 @@ class StoreMeasurement implements ShouldQueue
         $this->data['humidity'] = $request->get('humidity');
         $this->data['pressure'] = $request->get('pressure');
         $this->data['gas'] = $request->get('gas');
+        $this->data['p25'] = $request->get('p25');
+        $this->data['p10'] = $request->get('p10');
     }
 
 

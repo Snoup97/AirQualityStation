@@ -35,31 +35,45 @@
                     <div class="card-footer" style="display: block;">
                         <div class="row">
 
-                            <div class="col-sm-3 col-6">
+                            <div class="col-sm-2 col-6">
                                 <div class="description-block border-right">
-                                    <h5 class="description-header">{{ $station->temperature }}°C</h5>
+                                    <h5 class="description-header">{{ $station->temperature ?? 'N/A' }}°C</h5>
                                     <span class="description-text">Temperature</span>
                                 </div>
                             </div>
 
-                            <div class="col-sm-3 col-6">
+                            <div class="col-sm-2 col-6">
                                 <div class="description-block border-right">
-                                    <h5 class="description-header">{{ $station->humidity }}%</h5>
+                                    <h5 class="description-header">{{ $station->humidity ?? 'N/A' }}%</h5>
                                     <span class="description-text">Humidity</span>
                                 </div>
                             </div>
 
-                            <div class="col-sm-3 col-6">
+                            <div class="col-sm-2 col-6">
                                 <div class="description-block border-right">
-                                    <h5 class="description-header">{{ $station->pressure }}</h5>
+                                    <h5 class="description-header">{{ $station->pressure ?? 'N/A' }}</h5>
                                     <span class="description-text">Pressure</span>
                                 </div>
                             </div>
 
-                            <div class="col-sm-3 col-6">
+                            <div class="col-sm-2 col-6">
                                 <div class="description-block">
-                                    <h5 class="description-header">{{ $station->gas }}</h5>
+                                    <h5 class="description-header">{{ $station->gas ?? 'N/A' }}</h5>
                                     <span class="description-text">Gas</span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2 col-6">
+                                <div class="description-block">
+                                    <h5 class="description-header">{{ $station->p25 ?? 'N/A' }}</h5>
+                                    <span class="description-text">P 2.5</span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2 col-6">
+                                <div class="description-block">
+                                    <h5 class="description-header">{{ $station->p10 ?? 'N/A' }}</h5>
+                                    <span class="description-text">P 10</span>
                                 </div>
                             </div>
                         </div>

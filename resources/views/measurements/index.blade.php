@@ -29,6 +29,8 @@
                             <th>Humidity</th>
                             <th>Pressure</th>
                             <th>Gas</th>
+                            <th>P2.5</th>
+                            <th>P10</th>
                             <th>Rating</th>
                             <th>Time</th>
                         </tr>
@@ -43,10 +45,12 @@
                                         {{ $measurement->name }}
                                     </a>
                                 </td>
-                                <td>{{ $measurement->temperature }}</td>
-                                <td>{{ $measurement->humidity }}</td>
-                                <td>{{ $measurement->pressure }}</td>
-                                <td>{{ $measurement->gas }}</td>
+                                <td>{{ $measurement->temperature ?? 'N/A' }}</td>
+                                <td>{{ $measurement->humidity ?? 'N/A' }}</td>
+                                <td>{{ $measurement->pressure ?? 'N/A' }}</td>
+                                <td>{{ $measurement->gas ?? 'N/A' }}</td>
+                                <td>{{ $measurement->p25 ?? 'N/A' }}</td>
+                                <td>{{ $measurement->p10 ?? 'N/A' }}</td>
                                 <td><span class="badge bg-danger">Bad</span></td>
                                 <td>{{ $measurement->created_at->diffForHumans() }}</td>
                             </tr>

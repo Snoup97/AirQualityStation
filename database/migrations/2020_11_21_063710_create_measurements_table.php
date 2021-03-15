@@ -20,6 +20,8 @@ class CreateMeasurementsTable extends Migration
             $table->unsignedFloat('humidity')->nullable();
             $table->unsignedFloat('pressure')->nullable();
             $table->unsignedFloat('gas')->nullable();
+            $table->unsignedFloat('p25')->nullable();
+            $table->unsignedFloat('p10')->nullable();
             $table->timestamps();
         });
     }
