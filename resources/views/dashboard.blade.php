@@ -19,8 +19,18 @@
                 <div class="card">
                     <div class="card-header">
                         <a href="/stations/{{ $station->name }}">
-                            <h5 class="card-title">{{ $station->name }}</h5>
+                            <h5 class="card-title">{{ $station->name }}
+                                @if($station->createRating() == 1)
+                                    <td><span class="badge bg-success">Good</span></td>
+                                @elseif($station->createRating() == 2)
+                                    <td><span class="badge bg-warning">Warning</span></td>
+                                @else
+                                    <td><span class="badge bg-danger">Danger</span></td>
+                                @endif
+                            </h5>
                         </a>
+
+
 
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">

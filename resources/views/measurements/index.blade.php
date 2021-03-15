@@ -51,7 +51,13 @@
                                 <td>{{ $measurement->gas ?? 'N/A' }}</td>
                                 <td>{{ $measurement->p25 ?? 'N/A' }}</td>
                                 <td>{{ $measurement->p10 ?? 'N/A' }}</td>
-                                <td><span class="badge bg-danger">Very Bad</span></td>
+                                @if($measurement->createRating() == 1)
+                                    <td><span class="badge bg-success">Good</span></td>
+                                @elseif($measurement->createRating() == 2)
+                                    <td><span class="badge bg-warning">Warning</span></td>
+                                @else
+                                    <td><span class="badge bg-danger">Danger</span></td>
+                                @endif
                                 <td>{{ $measurement->created_at->diffForHumans() }}</td>
                             </tr>
                         @endforeach
