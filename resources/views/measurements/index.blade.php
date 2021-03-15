@@ -51,7 +51,7 @@
                                 <td>{{ $measurement->gas ?? 'N/A' }}</td>
                                 <td>{{ $measurement->p25 ?? 'N/A' }}</td>
                                 <td>{{ $measurement->p10 ?? 'N/A' }}</td>
-                                <td><span class="badge bg-danger">Bad</span></td>
+                                <td><span class="badge bg-danger">Very Bad</span></td>
                                 <td>{{ $measurement->created_at->diffForHumans() }}</td>
                             </tr>
                         @endforeach
