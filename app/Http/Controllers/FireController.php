@@ -10,7 +10,7 @@ class FireController extends Controller
 
     public function report(Request $request)
     {
-        if ($request->get('password') != '$e€ure0101!?') {
+        if ($request->get('password') != env('PUSH_KEY')) {
             return abort(404);
         }
 
