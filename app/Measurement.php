@@ -66,7 +66,7 @@ class Measurement extends Model
 
         if ($this->p25 != null && $this->p10 != null) {
             $pReading = ($this->p25 + $this->p10) / 2;
-            if($pReading <= 60.0){
+            if($pReading <= 180.0){
                 $results['p'] = 1;
             } else {
                 $results['p'] = 3;
